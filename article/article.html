@@ -1,0 +1,48 @@
+<nav class="navbar navbar-inverse">
+    <a class="navbar-brand" style="float: right" href="#">دفتر!</a>
+    <ul class="nav navbar-nav">
+        <li>
+            <a href="#!/about">
+                <i class="glyphicon glyphicon-info-sign"></i> درباره
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <i class="glyphicon glyphicon-home"></i> خانه
+            </a>
+        </li>
+    </ul>
+</nav>
+
+<div class="page-header">
+    <h1>{{article.name}} <small>{{article['lesson'].name}}</small></h1>
+</div>
+
+<div class="container">
+    <div class="row" ng-repeat="(id, value) in text track by id">
+        <div ng-init="pic = value.svg !== undefined && value.svg !== ''" class="col-md-11" style="margin-bottom: 15px">
+            <div class="col-md-4" ng-if="pic">
+                <div class="well well-lg">
+                    <img ng-src="{{getImage(value.svg)}}">
+                </div>
+            </div>
+            <div ng-class="{'col-md-8': pic, 'col-md-12': !pic}">
+                <div class="well well-lg" style="border-top: solid #3e8f3e 2px; white-space: pre-line">
+                    {{value.title}}
+                </div>
+                <div style="margin-top: -16px" class="well well-lg" ng-show="['question', 'example', 'definition'].indexOf(value.type) !== -1">
+                    {{value.text}}
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1">
+            <div class="well well-sm text-center">
+                <span ng-show="value.type == 'question'">سوال</span>
+                <span ng-show="value.type == 'example'">مثال</span>
+                <span ng-show="value.type == 'definition'">تعریف</span>
+                <span ng-show="value.type == 'tip'">نکته</span>
+            </div>
+            <div class="text-center"><i class="glyphicon glyphicon-star gold"  ng-if="value['is_important'] == 'true'"></i></div>
+        </div>
+    </div>
+</div>

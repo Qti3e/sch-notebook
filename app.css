@@ -1,0 +1,50 @@
+/* app css stylesheet */
+@import url(http://awebfont.ir/css?id=1116);
+html{
+  direction: rtl;
+}
+.menu {
+  list-style: none;
+  border-bottom: 0.1em solid black;
+  margin-bottom: 2em;
+  padding: 0 0 0.5em;
+}
+
+.menu:before {
+  content: "[";
+}
+
+.menu:after {
+  content: "]";
+}
+
+.menu > li {
+  display: inline;
+}
+
+.menu > li + li:before {
+  content: "|";
+  padding-right: 0.3em;
+}
+*{
+  border-radius: 0 !important;
+  font-family:  'B Yekan', tahoma, Arial;
+}
+h1,h2,h3,h4,h5,h6,p,small,b,a,em{
+  font-family:  'B Yekan', tahoma, Arial !important;
+}
+.MJXc-display{
+  display: inline !important;
+}
+
+.lesson-box{
+  float: right;
+}
+
+.panel-body{
+  padding: initial !important;
+}
+
+.gold{
+  color: #ffff00;
+}

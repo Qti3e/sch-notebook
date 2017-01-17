@@ -1,0 +1,40 @@
+<nav class="navbar navbar-inverse">
+	<a class="navbar-brand" style="float: right" href="#">دفتر!</a>
+	<ul class="nav navbar-nav">
+		<li ng-class="{active: isActive('/about')}">
+			<a href="#!/about">
+                <i class="glyphicon glyphicon-info-sign"></i> درباره
+            </a>
+		</li>
+        <li ng-class="{active: isActive('/home')}">
+            <a href="#">
+                <i class="glyphicon glyphicon-home"></i> خانه
+            </a>
+        </li>
+	</ul>
+</nav>
+
+<div class="page-header">
+    <h1>دفتر! <small>فهرست تمام دروس و جزوات</small></h1>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="lesson-box col-md-4 col-lg-3 col-sm-6 col-xs-12" ng-repeat="(pk, lesson) in lessons">
+            <div class="panel panel-success">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{{lesson.name}}</h3>
+                </div>
+            </div>
+            <div class="panel-body">
+                <treecontrol class="tree-classic tree-light"
+                             tree-model="lesson.tree"
+                             options="treeOptions"
+                             on-selection="showSelected(node)"
+                             selected-node="node1">
+                    <a href="#!/article/{{node.key}}">{{node.name}}</a>
+                </treecontrol>
+            </div>
+        </div>
+    </div>
+</div>

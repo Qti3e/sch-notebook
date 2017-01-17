@@ -1,0 +1,2 @@
+rm info/*
+download.js
