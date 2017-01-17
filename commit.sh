@@ -1,5 +1,5 @@
 rm info/*
 node download.js
-git add info/\\*
+git add --all
 git commit -am "Update database"
 git push
